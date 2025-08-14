@@ -2,6 +2,9 @@
 
 Privacy mode is an Obsidian plugin that prevents the editor from being read while out in public. It replaces document text with a dot-only font. Selected text gets revealed for easier editing/reading.
 
+![Privacy Mode](https://raw.githubusercontent.com/tiniscule/obsidian-privacy-mode/refs/heads/master/assets/privacy-mode-screenshot.png)
+
+
 ## Features
 
 - Replaces document text with a dot-only font.
