@@ -3,7 +3,7 @@
 	"name": "Privacy Mode",
 	"version": "1.0.2",
 	"minAppVersion": "0.15.0",
-	"description": "Prevents editor from being read while out in public",
+	"description": "Prevents your notes from being read by others while you're out in public.",
 	"author": "Tiniscule",
 	"authorUrl": "https://github.com/tiniscule",
 	"isDesktopOnly": false
