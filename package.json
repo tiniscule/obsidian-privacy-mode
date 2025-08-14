@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-privacy-mode",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Prevents editor from being read while out in public",
 	"main": "main.js",
 	"scripts": {
