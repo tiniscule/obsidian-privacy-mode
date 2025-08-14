@@ -1,0 +1,14 @@
+# Contributing
+Any and all pull-requests or issues are welcome.  I'll review as soon as I can.
+
+# Creating a release
+This can only be done by a repo owner, just documenting here for future me.
+
+Update the version in the tag to match the version in the manifest.json.
+
+```bash
+npm version patch
+npm run version
+git tag -a 1.0.1 -m "1.0.1"
+git push origin 1.0.1
+```

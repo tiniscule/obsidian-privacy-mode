@@ -1,8 +1,27 @@
-/*
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+@font-face { 
+	font-family: "PrivacyDots";
+	src: url(data:application/octet-stream;base64,d09GMgABAAAAAAUAAA4AAAAAMbwAAASlAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGhwGYACEXggEEQgKxTiqeAuEBAABNgIkA4QKBCAFhDQHiFQbhSER1aT1gXx9QA+YqxkVjGUjCzcxxBAQFFt0SFhq6AO+baxTY//tpu5yXqSPoNrvs2cf/CNWIXCECsgB+6sIFYlCXUUnEgAdUHkiesffu3u18a89hAILMEDpaJv3SKuEbiITEUpayoOADnffYCqM2lQWpbS2zTW04df5L8Wrawt9txQO0CB9QNUJUiYo6rbnx6hFyyJ/bfJLkVv64es9EBXXQDWkhbYIgIe4V/mPl2zBSTKEAxhay9Y6zz5fSyAEAVnDYtGAljZwgXoFLhWLAUzN61itatXpsmP67CijNVA6EJ+I6kkIeHC9YQI8PZ8T3sWbVgjQpMsNCYFAnr2MCjnF+GITYgBWZzdYFg6Sop7ZZ36MhW/OShNUJfmf9N/LAALyQfkgYBCEDBn6QWApXKCfmylAgzpJQpNmVVWB0KylqoRUfRMCAGVqgCBk174mdeo1aMzzL6FF0qoNBkcgUWgMFocnEElkCpVGZzBZbA6XxxcIRWKJVCZXKFVqjVanNxhNZosVjcHi8AQiiUyh0ugMJovN4fL4AqFILJHK5AqlSq3R6vQGo5m5haWVtY2tnb2Do5Ozi6ubu4enl7ePr0lZRU3DwNTawd7R2cnFzcPd08vH29fPZ1998c0P3/3x21//cJidgwdO2gnzwXFeuGwOR4AdIto7uVcSXvg7wyYIwD4p2CyvZAKOfxJ0p3yuzmsqaKnr6OppGxnDFUsrC4BDAKcBZm8MiKqSIAJSwn2UL9E4DYBhwCgXgegCa8TtJmBLVzzwXcnzuvarpI1rWn+9ze+mD33X4zeK12JeaTZy2aD5L9kCAHcUG9vto7r/G989VO/uxvcXtXBs23Q4o++RWu7duMNlcXeos+QixBELF50p428UDeY1IwQvmta+mlvHb3WNdTSICgeyPo1gXp0EgiPlU/MS/BSChXMurJwFQwQvakANrLHidoMVsCVc8xVoICLOnseaEALTUQC0OEAA+hshEBqtgkBSs4EAmZH+BMg1xggIFFpjMQRKjbEaLvJ6TAORIfT4GJIW6w2Z+X6GXE8thsKAxoVLJt8Lj0fdEZwoo/u8JR3k5+NCBIjqj7wYIoYGY+ARwN/+xz7v4xjnvl+R0TCDJwBYmPW4CYFxwCQ6DRCqs7Ckh5XFCFTGGkIF3nHSDMBcEpHuVVQUoh7LDMgzPLuf7WYqMWkFketxDa75hSpFQJJBD1XhjsusydICJlC1sLyi0jBVNkMAWPaKcN2LNQsAZwBZ44k5V1FIQPgQiiBSZJFHEWXUoi7qoyEaoymaoyVaow3DCZKiGZbjBVGSFVXTJ7/A7d53G6ZlO67nB2EUJ2mWF2VVN23XD+M0L2teNA1JSFrR8iilJK/HhOFgOTfi6nk7itpkrHponl6T/vz6Vxcr2zbN6qThyp7fRSie5xzas+/AE9KpI8fmUD5VXSiHd4324k0Wi8ER8ET9JAqZSmPQmSzPbD4Ov6CAeQPCQiKiXr1bPMZn3AA8FoxQUCqNjjFwgsmWj54BIxSUSqNjDJxgstjyoesNMEJBqTQ6xsAJJostH/0AjFBQKo2OMXCCyWLLR++pfOojp4h0AAA=);
+  }
 
-If your plugin does not need CSS, delete this file.
+/* CodeMirror v6 (Obsidian >= 0.13) */
+.privacy-mode-enabled .cm-scroller,
+.privacy-mode-enabled .markdown-source-view { 
+	font-family: "PrivacyDots", var(--font-text), var(--font-monospace), sans-serif !important;
+}
 
-*/
+/* Reveal actual text for selected ranges */
+.privacy-mode-enabled .cm-selected {
+	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+}
+
+/* Reveal actual text for any range decorated by the CM6 extension */
+.privacy-mode-enabled .privacy-mode-reveal {
+    font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+}
+
+/* Cursor caret should remain visible */
+.privacy-mode-enabled .cm-cursor,
+.privacy-mode-enabled .cm-dropCursor {
+	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+}
