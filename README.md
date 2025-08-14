@@ -28,3 +28,5 @@ I've submitted the plugin to the Obsidian community, but it's not yet approved. 
 3. Restart Obsidian
 4. Enable the plugin in the Obsidian settings
 
+## Special thanks
+Big time thanks to the Obsidian team for an awesome product and their base plugin
