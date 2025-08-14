@@ -19,3 +19,12 @@ Privacy mode can be enabled/disabled using the following commands in the command
 
 - `Privacy Mode: Enable`
 - `Privacy Mode: Disable`
+
+## Installing
+I've submitted the plugin to the Obsidian community, but it's not yet approved.  In the meantime, you can install it manually by following these steps:
+
+1. Download the latest main.js, manifest.json, and styles.css from the [releases page](https://github.com/tiniscule/obsidian-privacy-mode/releases)
+2. Copy the files to your Obsidian vault's `Vault/.obsidian/plugins/privacy-mode` folder
+3. Restart Obsidian
+4. Enable the plugin in the Obsidian settings
+
