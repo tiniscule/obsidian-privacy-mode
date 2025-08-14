@@ -1,7 +1,7 @@
 {
 	"id": "privacy-mode",
 	"name": "Privacy Mode",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Prevents editor from being read while out in public",
 	"author": "Tiniscule",
