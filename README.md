@@ -36,6 +36,8 @@ Clicking and holding on the block reveals it when wanted
 ## Optional privacy font
 It's probably silly, but I really like having the spaces maintained when in privacy mode for my own use case.  Unfortunately, adding full support for the unicode character space balloons the CSS file up to several megabytes, which doesn't seem ideal.  By default, privacy mode enables build in text-security which will cover the full character set.  If you want to enable spaces, and are ok with the ASCII only limitation, you can enable it in the privacy mode settings.
 
+> If someone smarter than me has an idea on how to do this better, I'm all ears.  Open an issue or a pull request with any ideas. It would be great to get the full character wet while preserving the spacing.  I really do think it's a much bette experience
+
 ## Installing
 I've submitted the plugin to the Obsidian community, but it's not yet approved.  In the meantime, you can install it manually by following these steps:
 
