@@ -7,21 +7,26 @@
 /* CodeMirror v6 (Obsidian >= 0.13) */
 .privacy-mode-enabled .cm-scroller,
 .privacy-mode-enabled .markdown-source-view { 
+	-webkit-text-security: disc !important;
+}
+
+.privacy-mode-font-enabled .cm-scroller,
+.privacy-mode-font-enabled .markdown-source-view { 
 	font-family: "PrivacyDots", var(--font-text), var(--font-monospace), sans-serif !important;
 }
 
-/* Reveal actual text for selected ranges */
-.privacy-mode-enabled .cm-selected {
-	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
-}
-
 /* Reveal actual text for any range decorated by the CM6 extension */
-.privacy-mode-enabled .privacy-mode-reveal {
+.privacy-mode-enabled .privacy-mode-reveal, 
+.privacy-mode-font-enabled .privacy-mode-reveal {
     font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+	-webkit-text-security: none !important;
 }
 
 /* Cursor caret should remain visible */
 .privacy-mode-enabled .cm-cursor,
-.privacy-mode-enabled .cm-dropCursor {
+.privacy-mode-enabled .cm-dropCursor,
+.privacy-mode-font-enabled .cm-cursor,
+.privacy-mode-font-enabled .cm-dropCursor {
 	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+	-webkit-text-security: none !important;
 }

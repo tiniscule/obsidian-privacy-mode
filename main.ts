@@ -1,4 +1,4 @@
-import { Plugin } from 'obsidian';
+import { App, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { StateField, RangeSetBuilder, EditorSelection } from '@codemirror/state';
 import { Decoration, DecorationSet, EditorView } from '@codemirror/view';
 
@@ -25,10 +25,12 @@ const revealSelectionFontField: StateField<DecorationSet> = StateField.define<De
 
 interface PrivacyModeSettings {
 	enabled: boolean;
+	useFontVersion: boolean;
 }
 
 const DEFAULT_SETTINGS: PrivacyModeSettings = {
-	enabled: false
+	enabled: false,
+	useFontVersion: false
 }
 
 export default class PrivacyModePlugin extends Plugin {
@@ -36,6 +38,9 @@ export default class PrivacyModePlugin extends Plugin {
 
 	async onload() {
 		await this.loadSettings();
+
+		// Add settings tab
+		this.addSettingTab(new PrivacyModeSettingTab(this.app, this));
 
 		// Apply initial state
 		this.applyPrivacyModeClass(this.settings.enabled);
@@ -78,9 +83,10 @@ export default class PrivacyModePlugin extends Plugin {
 		this.applyPrivacyModeClass(false);
 	}
 
-	private applyPrivacyModeClass(enabled: boolean) {
+	public applyPrivacyModeClass(enabled: boolean) {
 		const root = this.app.workspace.containerEl;
-		root.toggleClass('privacy-mode-enabled', enabled);
+		root.toggleClass('privacy-mode-font-enabled', enabled && this.settings.useFontVersion);
+		root.toggleClass('privacy-mode-enabled', enabled && !this.settings.useFontVersion);
 	}
 
 	async loadSettings() {
@@ -89,5 +95,32 @@ export default class PrivacyModePlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
+	}
+}
+
+class PrivacyModeSettingTab extends PluginSettingTab {
+	plugin: PrivacyModePlugin;
+
+	constructor(app: App, plugin: PrivacyModePlugin) {
+		super(app, plugin);
+		this.plugin = plugin;
+	}
+
+	display(): void {
+		const { containerEl } = this;
+		containerEl.empty();
+
+		containerEl.createEl('h2', { text: 'Privacy Mode Settings' });
+
+		new Setting(containerEl)
+			.setName('Enable Privacy Font')
+			.setDesc('Font-based privacy mode is a little nicer looking by adding support for maintaining spaces in your text, but only supports standard text')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.useFontVersion)
+				.onChange(async (value) => {
+					this.plugin.settings.useFontVersion = value;
+					this.plugin.applyPrivacyModeClass(this.plugin.settings.enabled);
+					await this.plugin.saveSettings();
+				}));
 	}
 }
