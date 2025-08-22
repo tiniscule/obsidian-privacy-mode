@@ -45,6 +45,8 @@ export default class PrivacyModePlugin extends Plugin {
 		// Apply initial state
 		this.applyPrivacyModeClass(this.settings.enabled);
 
+
+
 		// Register CodeMirror extension to reveal real font for selected ranges
 		this.registerEditorExtension(revealSelectionFontField);
 
@@ -85,8 +87,11 @@ export default class PrivacyModePlugin extends Plugin {
 
 	public applyPrivacyModeClass(enabled: boolean) {
 		const root = this.app.workspace.containerEl;
-		root.toggleClass('privacy-mode-font-enabled', enabled && this.settings.useFontVersion);
-		root.toggleClass('privacy-mode-enabled', enabled && !this.settings.useFontVersion);
+		// Set the base style class based on font preference
+		root.toggleClass('privacy-mode-font', this.settings.useFontVersion);
+		root.toggleClass('privacy-mode-secure', !this.settings.useFontVersion);
+		// Toggle privacy mode activation
+		root.toggleClass('privacy-mode-enabled', enabled);
 	}
 
 	async loadSettings() {
@@ -120,6 +125,8 @@ class PrivacyModeSettingTab extends PluginSettingTab {
 				.onChange(async (value) => {
 					this.plugin.settings.useFontVersion = value;
 					this.plugin.applyPrivacyModeClass(this.plugin.settings.enabled);
+					
+
 					await this.plugin.saveSettings();
 				}));
 	}

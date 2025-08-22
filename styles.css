@@ -1,54 +1,106 @@
-
 @font-face { 
 	font-family: "PrivacyDots";
 	src: url(data:application/octet-stream;base64,d09GMgABAAAAAAUAAA4AAAAAMbwAAASlAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGhwGYACEXggEEQgKxTiqeAuEBAABNgIkA4QKBCAFhDQHiFQbhSER1aT1gXx9QA+YqxkVjGUjCzcxxBAQFFt0SFhq6AO+baxTY//tpu5yXqSPoNrvs2cf/CNWIXCECsgB+6sIFYlCXUUnEgAdUHkiesffu3u18a89hAILMEDpaJv3SKuEbiITEUpayoOADnffYCqM2lQWpbS2zTW04df5L8Wrawt9txQO0CB9QNUJUiYo6rbnx6hFyyJ/bfJLkVv64es9EBXXQDWkhbYIgIe4V/mPl2zBSTKEAxhay9Y6zz5fSyAEAVnDYtGAljZwgXoFLhWLAUzN61itatXpsmP67CijNVA6EJ+I6kkIeHC9YQI8PZ8T3sWbVgjQpMsNCYFAnr2MCjnF+GITYgBWZzdYFg6Sop7ZZ36MhW/OShNUJfmf9N/LAALyQfkgYBCEDBn6QWApXKCfmylAgzpJQpNmVVWB0KylqoRUfRMCAGVqgCBk174mdeo1aMzzL6FF0qoNBkcgUWgMFocnEElkCpVGZzBZbA6XxxcIRWKJVCZXKFVqjVanNxhNZosVjcHi8AQiiUyh0ugMJovN4fL4AqFILJHK5AqlSq3R6vQGo5m5haWVtY2tnb2Do5Ozi6ubu4enl7ePr0lZRU3DwNTawd7R2cnFzcPd08vH29fPZ1998c0P3/3x21//cJidgwdO2gnzwXFeuGwOR4AdIto7uVcSXvg7wyYIwD4p2CyvZAKOfxJ0p3yuzmsqaKnr6OppGxnDFUsrC4BDAKcBZm8MiKqSIAJSwn2UL9E4DYBhwCgXgegCa8TtJmBLVzzwXcnzuvarpI1rWn+9ze+mD33X4zeK12JeaTZy2aD5L9kCAHcUG9vto7r/G989VO/uxvcXtXBs23Q4o++RWu7duMNlcXeos+QixBELF50p428UDeY1IwQvmta+mlvHb3WNdTSICgeyPo1gXp0EgiPlU/MS/BSChXMurJwFQwQvakANrLHidoMVsCVc8xVoICLOnseaEALTUQC0OEAA+hshEBqtgkBSs4EAmZH+BMg1xggIFFpjMQRKjbEaLvJ6TAORIfT4GJIW6w2Z+X6GXE8thsKAxoVLJt8Lj0fdEZwoo/u8JR3k5+NCBIjqj7wYIoYGY+ARwN/+xz7v4xjnvl+R0TCDJwBYmPW4CYFxwCQ6DRCqs7Ckh5XFCFTGGkIF3nHSDMBcEpHuVVQUoh7LDMgzPLuf7WYqMWkFketxDa75hSpFQJJBD1XhjsusydICJlC1sLyi0jBVNkMAWPaKcN2LNQsAZwBZ44k5V1FIQPgQiiBSZJFHEWXUoi7qoyEaoymaoyVaow3DCZKiGZbjBVGSFVXTJ7/A7d53G6ZlO67nB2EUJ2mWF2VVN23XD+M0L2teNA1JSFrR8iilJK/HhOFgOTfi6nk7itpkrHponl6T/vz6Vxcr2zbN6qThyp7fRSie5xzas+/AE9KpI8fmUD5VXSiHd4324k0Wi8ER8ET9JAqZSmPQmSzPbD4Ov6CAeQPCQiKiXr1bPMZn3AA8FoxQUCqNjjFwgsmWj54BIxSUSqNjDJxgstjyoesNMEJBqTQ6xsAJJostH/0AjFBQKo2OMXCCyWLLR++pfOojp4h0AAA=);
-  }
+}
 
-/* CodeMirror v6 (Obsidian >= 0.13) */
-.privacy-mode-enabled .cm-scroller,
-.privacy-mode-enabled .markdown-source-view { 
+/* Privacy Callout Styles */
+.callout[data-callout="privacy"] {
+	--callout-color: 128, 128, 128;
+	--callout-icon: lucide-eye-off;
+}
+
+/* Base styles for privacy modes */
+.privacy-mode-secure.privacy-mode-enabled .cm-scroller,
+.privacy-mode-secure.privacy-mode-enabled .markdown-source-view { 
 	-webkit-text-security: disc !important;
 }
 
-.privacy-mode-font-enabled .cm-scroller,
-.privacy-mode-font-enabled .markdown-source-view,
-.privacy-mode-font-enabled .HyperMD-codeblock { 
+.privacy-mode-font.privacy-mode-enabled .cm-scroller,
+.privacy-mode-font.privacy-mode-enabled .markdown-source-view,
+.privacy-mode-font.privacy-mode-enabled .HyperMD-codeblock { 
 	font-family: "PrivacyDots", var(--font-text), var(--font-monospace), sans-serif !important;
 }
 
+/* Privacy callouts - always private based on selected style */
+.privacy-mode-secure .callout[data-callout="privacy"] .callout-content,
+.privacy-mode-secure .callout[data-callout="privacy"] .callout-content * {
+	-webkit-text-security: disc !important;
+}
+
+.privacy-mode-font .callout[data-callout="privacy"] .callout-content,
+.privacy-mode-font .callout[data-callout="privacy"] .callout-content * {
+	font-family: "PrivacyDots", var(--font-text), var(--font-monospace), sans-serif !important;
+}
+
+/* Privacy callouts - always private based on selected style */
+.privacy-mode-secure .callout[data-callout="privacy"]:active .callout-content,
+.privacy-mode-secure .callout[data-callout="privacy"]:active .callout-content * {
+	-webkit-text-security: none !important;
+}
+
+.privacy-mode-font .callout[data-callout="privacy"]:active .callout-content	,
+.privacy-mode-font .callout[data-callout="privacy"]:active .callout-content * {
+	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+}
+
 /* Reveal actual text for any range decorated by the CM6 extension */
-.privacy-mode-enabled .privacy-mode-reveal, 
-.privacy-mode-font-enabled .privacy-mode-reveal {
+.privacy-mode-enabled .privacy-mode-reveal {
     font-family: var(--font-text), var(--font-monospace), sans-serif !important;
 	-webkit-text-security: none !important;
 }
 
-.privacy-mode-font-enabled .privacy-mode-reveal .HyperMD-codeblock {
+/* Handle code blocks in revealed sections */
+.privacy-mode-font .privacy-mode-reveal .HyperMD-codeblock {
 	font-family: var(--font-monospace) !important;
 }
 
 /* Cursor caret should remain visible */
 .privacy-mode-enabled .cm-cursor,
-.privacy-mode-enabled .cm-dropCursor,
-.privacy-mode-font-enabled .cm-cursor,
-.privacy-mode-font-enabled .cm-dropCursor {
+.privacy-mode-enabled .cm-dropCursor {
 	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
 	-webkit-text-security: none !important;
 }
 
 /* Blur images in privacy mode */
 .privacy-mode-enabled img,
-.privacy-mode-enabled .image-embed,
-.privacy-mode-font-enabled img,
-.privacy-mode-font-enabled .image-embed {
+.privacy-mode-enabled .image-embed {
 	filter: blur(20px) grayscale(1) !important;
 	transition: filter 0.2s ease-in-out;
 }
 
 /* Show clear images when they are selected/active */
 .privacy-mode-enabled img:active,
-.privacy-mode-enabled .image-embed:active,
-.privacy-mode-font-enabled img:active,
-.privacy-mode-font-enabled .image-embed:active {
+.privacy-mode-enabled .image-embed:active {
+	filter: none !important;
+}
+
+/* Reveal actual text for any range decorated by the CM6 extension */
+.privacy-mode-enabled .privacy-mode-reveal {
+    font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+	-webkit-text-security: none !important;
+}
+
+/* Handle code blocks in revealed sections */
+.privacy-mode-font .privacy-mode-reveal .HyperMD-codeblock {
+	font-family: var(--font-monospace) !important;
+}
+
+/* Cursor caret should remain visible */
+.privacy-mode-enabled .cm-cursor,
+.privacy-mode-enabled .cm-dropCursor {
+	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
+	-webkit-text-security: none !important;
+}
+
+/* Blur images in privacy mode */
+.privacy-mode-enabled img,
+.privacy-mode-enabled .image-embed {
+	filter: blur(20px) grayscale(1) !important;
+	transition: filter 0.2s ease-in-out;
+}
+
+/* Show clear images when they are selected/active */
+.privacy-mode-enabled img:active,
+.privacy-mode-enabled .image-embed:active {
 	filter: none !important;
 }
