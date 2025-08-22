@@ -30,3 +30,20 @@
 	font-family: var(--font-text), var(--font-monospace), sans-serif !important;
 	-webkit-text-security: none !important;
 }
+
+/* Blur images in privacy mode */
+.privacy-mode-enabled img,
+.privacy-mode-enabled .image-embed,
+.privacy-mode-font-enabled img,
+.privacy-mode-font-enabled .image-embed {
+	filter: blur(20px) grayscale(1) !important;
+	transition: filter 0.2s ease-in-out;
+}
+
+/* Show clear images when they are selected/active */
+.privacy-mode-enabled img:active,
+.privacy-mode-enabled .image-embed:active,
+.privacy-mode-font-enabled img:active,
+.privacy-mode-font-enabled .image-embed:active {
+	filter: none !important;
+}
