@@ -11,7 +11,8 @@
 }
 
 .privacy-mode-font-enabled .cm-scroller,
-.privacy-mode-font-enabled .markdown-source-view { 
+.privacy-mode-font-enabled .markdown-source-view,
+.privacy-mode-font-enabled .HyperMD-codeblock { 
 	font-family: "PrivacyDots", var(--font-text), var(--font-monospace), sans-serif !important;
 }
 
@@ -20,6 +21,10 @@
 .privacy-mode-font-enabled .privacy-mode-reveal {
     font-family: var(--font-text), var(--font-monospace), sans-serif !important;
 	-webkit-text-security: none !important;
+}
+
+.privacy-mode-font-enabled .privacy-mode-reveal .HyperMD-codeblock {
+	font-family: var(--font-monospace) !important;
 }
 
 /* Cursor caret should remain visible */
