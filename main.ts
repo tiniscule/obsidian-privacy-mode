@@ -114,9 +114,6 @@ class PrivacyModeSettingTab extends PluginSettingTab {
 	display(): void {
 		const { containerEl } = this;
 		containerEl.empty();
-
-		containerEl.createEl('h2', { text: 'Privacy Mode Settings' });
-
 		new Setting(containerEl)
 			.setName('Enable Privacy Font')
 			.setDesc('Font-based privacy mode is a little nicer looking by adding support for maintaining spaces in your text, but only supports standard text')
